@@ -1,3 +1,8 @@
+using MultiShop.Catalog.Services.CategoryServices;
+using MultiShop.Catalog.Services.ProductDetailServices;
+using MultiShop.Catalog.Services.ProductImageServices;
+using MultiShop.Catalog.Services.ProductServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddAutoMapper();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
+builder.Services.AddScoped<IProductImageService, ProductImageService>();
+
 
 var app = builder.Build();
 
