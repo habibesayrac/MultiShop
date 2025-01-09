@@ -15,7 +15,7 @@ namespace MultiShop.Catalog.Services.ProductImageServices
 		{
 			var client = new MongoClient(_databaseSettings.ConnectionString);
 			var database = client.GetDatabase(_databaseSettings.DatabaseName);
-			_productImageCollection = database.GetCollection<ProductImage>(_databaseSettings.CategoryCollectionName);
+			_productImageCollection = database.GetCollection<ProductImage>(_databaseSettings.ProductImageCollectionName);
 			_mapper = mapper;
 		}
 
